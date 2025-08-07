@@ -85,6 +85,6 @@ RUN apt-get update && apt-get install -y \
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i --force-depends google-chrome-stable_current_amd64.deb
 RUN apt --fix-broken install
-
+RUN useradd -u 1000 -ms /bin/bash
 USER 1000
 ENTRYPOINT ["sh", "entrypoint.sh"]
