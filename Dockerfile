@@ -70,7 +70,7 @@ RUN apt-get update && apt-get install -y \
     libdrm2 \
     libgbm1 \
     libgtk-3-0 \
-#    libgtk-4-1 \
+    #    libgtk-4-1 \
     libnspr4 \
     libnss3 \
     libwayland-client0 \
@@ -85,5 +85,6 @@ RUN apt-get update && apt-get install -y \
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i --force-depends google-chrome-stable_current_amd64.deb
 RUN apt --fix-broken install
-# ENTRYPOINT ["python", "./parser_cls.py"]
+
+USER 1000
 ENTRYPOINT ["sh", "entrypoint.sh"]
